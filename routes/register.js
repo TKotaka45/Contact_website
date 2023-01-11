@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
 
 // New User Path
 router.post('/', async (req, res) => {
-    //First Check if the user has entered a username and password
+
     const user = new User({
         username: req.body.username,
         password: req.body.password

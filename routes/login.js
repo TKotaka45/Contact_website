@@ -21,17 +21,16 @@ router.post('/', async (req, res) => {
             password: req.body.password
         })
         if (loguser) {
-            res.render('./user/homepage', {
-                user: user
-            })
+            res.redirect('./homepage')
         } else {
-            res.render('/', {
+            res.render('./user/login', {
+                user:user,
                 errorMessage: "Log in failed"
             })
         }
     }
     catch (error) {
-        res.render('/', {
+        res.render('./user/login', {
             user: user,
             errorMessage: "Log in error occured"
         })
