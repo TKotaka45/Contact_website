@@ -12,7 +12,7 @@ PORT = 5555
 const indexRouter = require('./routes/index')
 const regRouter = require('./routes/register')
 const loginRouter = require('./routes/login')
-const homepageRouter = require('./routes/homepage')
+const userRouter = require('./routes/user')
 
 app.set('view engine', 'ejs')
 app.set('views', __dirname + '/views') 
@@ -34,7 +34,7 @@ db.once('open', error => console.log("MongoDB connected"))
 app.use('/', indexRouter)
 app.use('/register', regRouter)
 app.use('/login', loginRouter)
-app.use('/homepage', homepageRouter)
+app.use('/user', userRouter)
 
 
 app.listen(PORT);

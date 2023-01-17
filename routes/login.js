@@ -21,7 +21,7 @@ router.post('/', async (req, res) => {
             password: req.body.password
         })
         if (loguser) {
-            res.redirect('./homepage')
+            res.redirect('./user/' + loguser._id)
         } else {
             res.render('./userAuth/login', {
                 user:user,
