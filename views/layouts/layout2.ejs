@@ -7,6 +7,9 @@
     <title><%- user.username%></title>
 </head>
 <body>
-    Welcome User <%- user.username %>
+    <%- include('../partials/userHeader.ejs') %>
+    <div>
+        <%- body %>
+    </div>
 </body>
 </html>

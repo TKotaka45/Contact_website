@@ -3,7 +3,7 @@ const router = express.Router()
 const User = require('../models/user')
 
 router.get('/', (req, res) => {
-    res.render('./user/login', {
+    res.render('./userAuth/login', {
         layout: './layouts/layout1',
         user: new User()
     })
@@ -23,14 +23,14 @@ router.post('/', async (req, res) => {
         if (loguser) {
             res.redirect('./homepage')
         } else {
-            res.render('./user/login', {
+            res.render('./userAuth/login', {
                 user:user,
                 errorMessage: "Log in failed"
             })
         }
     }
     catch (error) {
-        res.render('./user/login', {
+        res.render('./userAuth/login', {
             user: user,
             errorMessage: "Log in error occured"
         })
