@@ -9,6 +9,9 @@ router.get('/:_id', async (req, res) => {
 
         // Need to add an authentication check on the IP address accessing the page
         // Will redirect to front page if authentication check does not go through
+        
+        //Create IP address Schema, attach user to IP Address Document
+        // Will delete the IP document when the user selects log out
 
 
         const userLogin = await user.findById(id)

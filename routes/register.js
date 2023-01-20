@@ -3,7 +3,7 @@ const router = express.Router()
 const User = require('../models/user')
 
 router.get('/', (req, res) => {
-    res.render('./user/register', {
+    res.render('./userAuth/register', {
         layout: './layouts/layout1',
         user: new User()
     })
@@ -20,13 +20,13 @@ router.post('/', async (req, res) => {
     try {
         const newUser = await user.save(function (err) {
             if (err) {
-                res.render('./user/register', {
+                res.render('./userAuth/register', {
                     layout: './layouts/layout1',
                     user: user,
                     errorMessage: 'Username already in use'
                 })
             } else {
-                res.render('./user/login', {
+                res.render('./userAuth/login', {
                     layout: './layouts/layout1',
                     user: user,
                     errorMessage: 'User successfully created'
@@ -35,7 +35,7 @@ router.post('/', async (req, res) => {
         })
 
     } catch (error) {
-        res.render('./user/register', {
+        res.render('./userAuth/register', {
             layout: './layouts/layout1',
             user: user,
             errorMessage: error
