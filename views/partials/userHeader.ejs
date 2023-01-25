@@ -1,12 +1,13 @@
-<header>
+<header style="border-bottom: 1px solid black;">
     <nav>
         <h1>
             Welcome <%- user.username %>
         </h1>
-        <ul>
-            <li>
-                <a href="/">Sign Out</a>
-            </li>
+        <ul style='display:horizontal;'>
+            <li><a href="<%= link %>">Home</a></li>
+            <li><a href="<%= editlink %>">Edit User</a></li>
+            <li><a href="/">Sign Out</a></li>
+            
         </ul>
     </nav>
 </header>

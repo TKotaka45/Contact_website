@@ -7,7 +7,7 @@ const app = express()
 const expressLayouts = require('express-ejs-layouts')
 const bodyParser = require('body-Parser')
 const { Router } = require('express')
-PORT = 5555
+PORT = process.env.PORT
 
 const indexRouter = require('./routes/index')
 const regRouter = require('./routes/register')
@@ -38,3 +38,6 @@ app.use('/user', userRouter)
 
 
 app.listen(PORT);
+
+console.log(`App Listening on Port ${PORT}`)
+console.log(`Link: http://localhost:${PORT}`)

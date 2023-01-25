@@ -1,0 +1,17 @@
+<h1>Edit User <%- user.username %> </h1>
+
+<form action=<%=postLink%> method="POST">
+    <label> Username: </label>
+    <input type="text" name="username" value="<%= user.username%>">
+    <br>
+    <label>Password: </label>
+    <input type="password" name="password1">
+    <br>
+    <label>Confirm Password: </label>
+    <input type="password" name="password2">
+    <br>
+    <button type="submit">Save Changes</button>
+    <input type = "hidden" name=":_id" value="<%=user._id%>"></input>
+    <a href="<%= link %>">Cancel</a>
+</form>
+

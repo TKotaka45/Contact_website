@@ -19,11 +19,22 @@ router.post('/', async (req, res) => {
 
     try {
         const newUser = await user.save(function (err) {
-            if (err) {
+
+            //Error handling on send to mongoDB
+            // Check for unique username & check username and password entered
+            if (err && err.code == 11000) {
+                console.log(err.code);
                 res.render('./userAuth/register', {
                     layout: './layouts/layout1',
                     user: user,
                     errorMessage: 'Username already in use'
+                })
+
+            } else if (err && err.name === "ValidationError") {
+                res.render('./userAuth/register', {
+                    layout: './layouts/layout1',
+                    user: user,
+                    errorMessage: 'Please enter Username and Password'
                 })
             } else {
                 res.render('./userAuth/login', {
@@ -38,7 +49,7 @@ router.post('/', async (req, res) => {
         res.render('./userAuth/register', {
             layout: './layouts/layout1',
             user: user,
-            errorMessage: error
+            errorMessage: "An unknown error occured"
         })
     }
 

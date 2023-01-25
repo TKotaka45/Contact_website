@@ -29,6 +29,7 @@ router.post('/', async (req, res) => {
             })
         }
     }
+    
     catch (error) {
         res.render('./userAuth/login', {
             user: user,
